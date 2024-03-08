@@ -3,11 +3,11 @@ package repository
 import "GoDiary/src/data/models"
 
 type DiaryRepo interface {
-	save(diary models.Diary) models.Diary
-	findById(id string)
+	Save(diary models.Diary) (models.Diary, error)
+	FindById(id int) (models.Diary, error)
 	count() float64
 	delete(diary models.Diary)
-	deleteById(id string)
-	findDiaryByUsername(username string) models.Diary
-	list() []models.Diary
+	DeleteById(id int) error
+	findDiaryByUsername(username string) (models.Diary, error)
+	List() []models.Diary
 }

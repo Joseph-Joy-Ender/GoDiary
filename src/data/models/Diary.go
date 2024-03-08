@@ -1,40 +1,40 @@
 package models
 
 type Diary struct {
-	username string
+	Username string
 	password string
-	id       string
+	Id       int
 	isLocked bool
 }
 
-func myDiary(username string, password string, id string) *Diary {
+func MyDiary(username string, password string, id int) *Diary {
 	return &Diary{
-		username: username,
+		Username: username,
 		password: password,
-		id:       id,
+		Id:       id,
 		isLocked: true,
 	}
 }
 
-func (receiver *Diary) setUsername(username string) {
-	receiver.username = username
+func (receiver *Diary) SetUsername(username string) {
+	receiver.Username = username
 }
 
-func (receiver *Diary) getUsername() string {
-	return receiver.username
+func (receiver *Diary) GetUsername() string {
+	return receiver.Username
 
 }
 
-func (receiver *Diary) setPassword(password string) {
+func (receiver *Diary) SetPassword(password string) {
 	receiver.password = password
 
 }
 
-func (receiver *Diary) setId(id string) {
-	receiver.id = id
+func (receiver *Diary) SetId(id int) {
+	receiver.Id = id
 }
 
-func (receiver *Diary) getId() string {
-	return receiver.id
+func (receiver *Diary) GetId() int {
+	return receiver.Id
 
 }
