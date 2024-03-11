@@ -3,6 +3,7 @@ package repository
 import (
 	"GoDiary/src/data/models"
 	"errors"
+	"fmt"
 )
 
 type DiaryRepoImpl struct {
@@ -51,15 +52,15 @@ func (repo *DiaryRepoImpl) List() []models.Diary {
 	return diaries
 }
 
-//func (repo *DiaryRepoImpl) findDiaryByUsername(username string)(models.Diary, error){
-//	for _, diary := range repo.Diary{
-//		if diary.Username == username{
-//			return models.Diary{}, nil
-//		}
-//	}
-//	//return "user with username '%s' not found\", username", nil
-//	//nil, fmt.Errorf("user with username '%s' not found", username)
-//}
+func (repo *DiaryRepoImpl) findDiaryByUsername(username string) (models.Diary, error) {
+	for _, diary := range repo.Diary {
+		if diary.Username == username {
+			return models.Diary{}, nil
+		}
+	}
+
+	return models.Diary{}, fmt.Errorf("user with username '%s' not found", username)
+}
 
 func generateUniqueId() int {
 	staticIdCounter++
